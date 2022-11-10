@@ -1,17 +1,12 @@
-# Path: handlers\__init__.py
+Path: handlers\__init__.py
 
-# import glob
-# import re
+import glob
+import re
 
-# labelers = []
-# for f in [re.search(r".*handlers\\(.+?)\.py", h).group(1) for h in glob.glob("./handlers/*") if "__" not in h]:
-#     exec(f"from handlers.{f} import labeler\nlabelers.append(labeler)")
+labelers = []
+for f in [re.search(r".*handlers\\(.+?)\.py", h).group(1) for h in glob.glob("./handlers/*") if "__" not in h]:
+    exec(f"from handlers.{f} import labeler\nlabelers.append(labeler)")
 
-# print(labelers)
+print(labelers)
 
-# __all__ = ["labelers"]
-
-
-from . import info, wiki
-
-labelers = [info.labeler, wiki.labeler]
+__all__ = ["labelers"]
