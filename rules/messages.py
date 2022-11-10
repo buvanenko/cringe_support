@@ -9,4 +9,10 @@ class FromMe(ABCRule[Message]):
         self.text = text
 
     async def check(self, event: Message) -> bool:
-        return event.from_id == config.USER_ID and event.text.startswith(self.text)
+        if type(self.text) == str:
+            return event.from_id == config.USER_ID and event.text.startswith(self.text)
+        elif type(self.text) == list:
+            for t in self.text:
+                if event.from_id == config.USER_ID and event.text.startswith(t):
+                    return True
+            return False
