@@ -1,4 +1,4 @@
-Path: handlers\__init__.py
+# Path: handlers\__init__.py
 
 import glob
 import re
