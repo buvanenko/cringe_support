@@ -3,12 +3,11 @@ from vkbottle.user import User
 
 import config
 
-user = User(config.TOKEN)
-
-async def edit(message: Message, text: str):
-    a = await user.api.messages.edit(
+async def edit(message: Message, text: str, attachment: str = ''):
+    a = await config.user.api.messages.edit(
         peer_id=message.peer_id,
         message_id=message.id,
         message=text,
+        attachment=attachment
     )
     print(a)
