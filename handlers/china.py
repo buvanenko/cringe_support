@@ -21,7 +21,7 @@ d = {'Й': 'z', 'Ц': '凵', 'У': '丫', 'К': '长', 'Е': '乇',
 
 @labeler.message(FromMe('.кит '))
 async def info(message: Message):
-    text = message.text[5:].lower()
+    text = message.text[5:].upper()
     new_text = ''
     for i in text:
         if i in d:
