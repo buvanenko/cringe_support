@@ -7,6 +7,11 @@ from tools.messages import edit
 labeler = BotLabeler()
 
 @labeler.message(FromMe('.стата'))
-async def info(message: Message):
+async def stats(message: Message):
     history = await config.user.api.messages.get_history(peer_id=message.peer_id, count=1)
-    await edit(message, f"✉️ Сообщений в беседе: {history.count}")
+
+    text = f'''ℹ️ Статистика беседы {message.peer_id}
+
+✉️ Сообщений в беседе: {history.count}'''
+
+    await edit(message, text)
